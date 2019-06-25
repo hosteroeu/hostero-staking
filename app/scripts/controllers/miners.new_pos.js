@@ -82,6 +82,7 @@ angular.module('anchialeApp')
         name: name,
         coin: 'webdollar',
         status: 'stopped',
+        mode: 'staking',
         deployed: '2',
         threads: -100,
         processor: _this.wallets.default_processor,
