@@ -9,8 +9,8 @@
  */
 angular.module('anchialeApp')
   .provider('api', function() {
-    this.url = '//localhost:8080/';
-    //this.url = 'https://api.hostero.eu/';
+    //this.url = '//localhost:8080/';
+    this.url = 'https://api.hostero.eu/';
     this.version = 'v1';
 
     this.$get = function() {
