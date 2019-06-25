@@ -50,7 +50,7 @@ angular
       tokenGetter: function() {
         return localStorage.getItem('token');
       },
-      whiteListedDomains: ['localhost', 'api.hostero.eu', 'dashboard.hostero.eu'],
+      whiteListedDomains: ['localhost', 'api.hostero.eu', 'staking.hostero.eu'],
       unauthenticatedRedirectPath: '/login'
     });
 
@@ -204,11 +204,11 @@ angular
       var location = $location.path();
 
       // allow http only on logs page
-      if (window.location.hostname === 'dashboard.hostero.eu' &&
+      if (window.location.hostname === 'staking.hostero.eu' &&
         window.location.protocol === 'http:' &&
         location.indexOf('logs') === -1) {
         window.stop();
-        window.location.href = 'https://dashboard.hostero.eu';
+        window.location.href = 'https://staking.hostero.eu';
         return;
       }
 
