@@ -39,15 +39,7 @@
               </a>
             </li>
             <li class="active">
-              <a href="https://www.hostero.eu/getting-started" target="_blank" tabindex="-1">
-                <span class="step-indicator step-indicator-icon">
-                  <i class="fas fa-download"></i>
-                </span>
-                <span class="d-none d-sm-inline">Install Device</span>
-              </a>
-            </li>
-            <li>
-              <a ui-sref="hosts" tabindex="-1">
+              <a ui-sref="nodes" tabindex="-1">
                 <span class="step-indicator step-indicator-icon">
                   <i class="fas fa-plus"></i>
                 </span>
@@ -70,8 +62,7 @@
           <h4>Run your Miners, easy as &pi;</h4>
           <hr />
           <p><a class="tile tile-circle">1</a> Add the wallet for the coin</p>
-          <p><a class="tile tile-circle">2</a> Install Hostero on the device (PC/server)</p>
-          <p><a class="tile tile-circle">3</a> Deploy a miner on the new device</p>
+          <p><a class="tile tile-circle">2</a> Deploy a miner on a node</p>
         </div>
         <!-- /.card-body -->
       </div>
@@ -122,9 +113,9 @@
                   <sub>
                   <i class="fas fa-laptop"></i>
                 </sub>
-                  <span class="value">{{ global_hosts.length || 0 }}</span>
+                  <span class="value">{{ global_nodes.length || 0 }}</span>
                 </p>
-                <h2 class="metric-label"> <a ui-sref="hosts">Devices</a> </h2>
+                <h2 class="metric-label"> <a ui-sref="nodes">Nodes</a> </h2>
               </div>
             </div>
             <!-- /.metric -->

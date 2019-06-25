@@ -142,15 +142,6 @@ angular
           requiresLogin: true
         }
       })
-      .state('hosts', {
-        url: '/hosts',
-        templateUrl: 'views/hosts.html',
-        controller: 'HostsCtrl',
-        controllerAs: 'hostsCtrl',
-        data: {
-          requiresLogin: true
-        }
-      })
       .state('account', {
         url: '/account',
         templateUrl: 'views/account.html',

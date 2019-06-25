@@ -11,11 +11,7 @@
       <!-- /floating action -->
       <!-- title and toolbar -->
       <div class="d-md-flex align-items-md-start">
-        <h1 class="page-title mr-sm-auto"> {{miners.length || 0}} Miners
-          <small class="badge">
-            <a ui-sref="account">{{(global_account.plan_miners + global_account.bonus_miners) || 0}} Available</a>
-          </small>
-        </h1>
+        <h1 class="page-title mr-sm-auto"> {{miners.length || 0}} Miners</h1>
         <!-- .btn-toolbar -->
         <div class="btn-toolbar">
           <div class="dropdown">
@@ -57,7 +53,7 @@
               <th>Hashrate</th>
               <!--<th>Est. 24h Rewards</th>-->
               <th>Updated</th>
-              <th class="d-none d-sm-none d-md-none d-lg-block">Device</th>
+              <th class="d-none d-sm-none d-md-none d-lg-block">Node</th>
               <th>&nbsp;</th>
             </tr>
           </thead>

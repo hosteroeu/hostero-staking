@@ -26,14 +26,11 @@ angular.module('anchialeApp')
 
       if ($rootScope.minimalLayout === false) {
         hostsService.query().$promise.then(function(res) {
-          $scope.global_hosts = [];
           $scope.global_nodes = [];
 
           res.forEach(function(host) {
             if (host.user_id === 'shared') {
               $scope.global_nodes.push(host);
-            } else {
-              $scope.global_hosts.push(host);
             }
           });
         });
