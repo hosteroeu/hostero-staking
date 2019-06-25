@@ -1,2 +1,2 @@
-# hostero-stake
-https://stake.hostero.eu
+# hostero-staking
+https://staking.hostero.eu
