@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:HostCtrl
+ * @name anchialeApp.controller:HostCtrl
  * @description
  * # HostCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('HostCtrl', function($scope, $state, hostsService) {
     $scope.host = null;
     $scope.state = $state;

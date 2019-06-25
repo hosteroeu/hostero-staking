@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:LogsCtrl
+ * @name anchialeApp.controller:LogsCtrl
  * @description
  * # LogsCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('LogsCtrl', function($scope, $rootScope, $state, minersService, $sce, ansi2html) {
     $scope.logs = [];
     $scope.power = '0 h/s';

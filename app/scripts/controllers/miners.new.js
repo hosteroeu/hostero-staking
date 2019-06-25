@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:MinersNewCtrl
+ * @name anchialeApp.controller:MinersNewCtrl
  * @description
  * # MinersNewCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('MinersNewCtrl', function($state, minersService, hostsService, accountsService) {
     var account = JSON.parse(localStorage.getItem('account'));
     var _this = this;

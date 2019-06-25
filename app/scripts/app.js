@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name atlasApp
+ * @name anchialeApp
  * @description
- * # atlasApp
+ * # anchialeApp
  *
  * Main module of the application.
  */
 angular
-  .module('atlasApp', [
+  .module('anchialeApp', [
     'ngAnimate',
     'ngCookies',
     'ngMessages',
@@ -37,7 +37,7 @@ angular
       options: {
         closable: false,
         languageDictionary: {
-          title: 'Hostero Dashboard'
+          title: 'Hostero Staking'
         },
         theme: {
           logo: '/images/hostero_logo_black_square.png',

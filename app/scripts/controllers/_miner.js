@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:MinerCtrl
+ * @name anchialeApp.controller:MinerCtrl
  * @description
  * # MinerCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('MinerCtrl', function($scope, $state, minersService) {
     $scope.miner = null;
 

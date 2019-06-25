@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:EventsCtrl
+ * @name anchialeApp.controller:EventsCtrl
  * @description
  * # EventsCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('EventsCtrl', function($scope, logsService) {
     logsService.query().$promise.then(function(data) {
       $scope.events = data;

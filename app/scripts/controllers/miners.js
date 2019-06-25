@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:MinersCtrl
+ * @name anchialeApp.controller:MinersCtrl
  * @description
  * # MinersCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('MinersCtrl', function($scope, $state, minersService, coinsService, hostsService, DTOptionsBuilder) {
     $scope.miners = null;
     $scope.hosts = hostsService.query();

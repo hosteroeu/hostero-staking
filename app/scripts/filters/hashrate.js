@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.filter:hashrate
+ * @name anchialeApp.filter:hashrate
  * @description
  * # Hashrate
- * Filter of the atlasApp
+ * Filter of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .filter('hashrate', function() {
     return function(input) {
       var output;

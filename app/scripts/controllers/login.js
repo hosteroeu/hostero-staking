@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:LoginCtrl
+ * @name anchialeApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('LoginCtrl', function ($scope, authService) {
     authService.login();
   });

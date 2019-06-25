@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc factory
- * @name atlasApp.accounts
+ * @name anchialeApp.accounts
  * @description
  * # accounts
- * Service in the atlasApp.
+ * Service in the anchialeApp.
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .factory('accountsService', function($resource, api) {
     return $resource(api.url + api.version +
       '/accounts/:id/:controller/:verb/:action', {

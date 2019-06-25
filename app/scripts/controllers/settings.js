@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:SettingsCtrl
+ * @name anchialeApp.controller:SettingsCtrl
  * @description
  * # SettingsCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('SettingsCtrl', function($scope, $state, accountsService) {
     var account = JSON.parse(localStorage.getItem('account'));
     var _this = this;

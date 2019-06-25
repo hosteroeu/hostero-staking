@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc provider
- * @name atlasApp.api
+ * @name anchialeApp.api
  * @description
  * # api
- * Provider in the atlasApp.
+ * Provider in the anchialeApp.
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .provider('api', function() {
     this.url = '//localhost:8080/';
     //this.url = 'https://api.hostero.eu/';

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:BillingCtrl
+ * @name anchialeApp.controller:BillingCtrl
  * @description
  * # BillingCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('BillingCtrl', function($scope, $state, accountsService, paymentsService, coinsService) {
     var account = JSON.parse(localStorage.getItem('account'));
 

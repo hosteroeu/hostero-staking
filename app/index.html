@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- End Required meta tags -->
   <!-- Begin SEO tag -->
-  <title>Hostero Dashboard</title>
+  <title>Hostero Staking</title>
   <meta name="author" content="Hostero">
-  <meta name="description" content="Start mining cryptocurrency in a few minutes. Mining software for CPU mineable cryptocurrencies.">
-  <meta property="og:title" content="Hostero Dashboard">
+  <meta name="description" content="Start staking cryptocurrency in a few minutes.">
+  <meta property="og:title" content="Hostero Staking">
   <meta property="og:locale" content="en_US">
-  <meta property="og:description" content="Start mining cryptocurrency in a few minutes. Mining software for CPU mineable cryptocurrencies.">
-  <meta property="og:url" content="https://dashboard.hostero.eu/">
-  <meta property="og:site_name" content="Hostero Dashboard">
-  <link rel="canonical" href="https://dashboard.hostero.eu/">
+  <meta property="og:description" content="Start staking cryptocurrency in a few minutes.">
+  <meta property="og:url" content="https://staking.hostero.eu/">
+  <meta property="og:site_name" content="Hostero Staking">
+  <link rel="canonical" href="https://staking.hostero.eu/">
   <!-- FAVICONS -->
   <link rel="shortcut icon" href="favicon.ico">
   <meta name="theme-color" content="#3063A0">
@@ -42,7 +42,7 @@
   <!-- endbuild -->
 </head>
 
-<body ng-app="atlasApp" ng-controller="RootCtrl as rootCtrl">
+<body ng-app="anchialeApp" ng-controller="RootCtrl as rootCtrl">
   <!-- .app -->
   <div class="app" ng-class="{'has-fullwidth': minimalLayout}">
     <!-- .app-header -->
@@ -53,10 +53,7 @@
         <div class="top-bar-brand">
           <img src="images/hostero_logo_white_small.png" height="32" alt="">&nbsp;&nbsp;
           <a ui-sref="dashboard">
-            <strong>Dashboard</strong>
-          </a>&nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="https://bootstrap.hostero.eu" target="_blank">
-            <strong>Bootstrap</strong>
+            <strong>Staking</strong>
           </a>
         </div>
         <!-- /.top-bar-brand -->
@@ -121,32 +118,6 @@
               <!-- /.nav-item -->
               <!-- .nav-item -->
               <!--<li class="nav-item dropdown header-nav-dropdown has-notified">-->
-              <li class="nav-item dropdown header-nav-dropdown">
-                <a class="nav-link" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="fa fa-dollar-sign"></span>
-                </a>
-                <div class="dropdown-arrow"></div>
-                <!-- .dropdown-menu -->
-                <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
-                  <!-- .dropdown-sheets -->
-                  <div class="dropdown-sheets">
-                    <!-- .dropdown-sheet-item -->
-                    <div class="dropdown-sheet-item" ng-repeat="coin in global_coins">
-                      <a ui-sref="wallets.wallet({wallet:coin.internal_name})" class="tile-wrapper">
-                        <figure class="user-avatar user-avatar-sm">
-                          <img src="{{coin.logo_url}}" alt="User Avatar">
-                        </figure>
-                        <span class="tile-peek">
-                          {{coin.name}}
-                        </span>
-                      </a>
-                    </div>
-                    <!-- /.dropdown-sheet-item -->
-                  </div>
-                  <!-- .dropdown-sheets -->
-                </div>
-                <!-- .dropdown-menu -->
-              </li>
               <!-- /.nav-item -->
             </ul>
             <!-- /.nav -->
@@ -234,16 +205,6 @@
               </li>
               <!-- /.menu-item -->
               <!-- .menu-item -->
-              <li class="menu-item" ng-if="isAuthenticated">
-                <a href="https://www.hostero.eu/getting-started" target="_blank" class="menu-link">
-                  <span class="menu-icon fas fa-download"></span>
-                  <span class="menu-text">Install</span>
-                  <span class="badge">1 minute</span>
-                </a>
-                <!-- /child menu -->
-              </li>
-              <!-- /.menu-item -->
-              <!-- .menu-item -->
               <li class="menu-item">
                 <a ui-sref="login" class="menu-link" ng-if="!isAuthenticated">
                   <span class="menu-icon fas fa-sign-in-alt"></span>
@@ -256,24 +217,6 @@
               <li class="menu-header" ng-if="isAuthenticated">Admin </li>
               <!-- /.menu-header -->
               <!-- .menu-item -->
-              <li class="menu-item" ng-if="isAuthenticated">
-                <a ui-sref="settings" class="menu-link">
-                  <span class="menu-icon fas fa-cog"></span>
-                  <span class="menu-text">Settings</span>
-                </a>
-                <!-- /child menu -->
-              </li>
-              <!-- /.menu-item -->
-              <!-- .menu-item -->
-              <li class="menu-item" ng-if="isAuthenticated">
-                <a ui-sref="billing" class="menu-link">
-                  <span class="menu-icon fas fa-wallet"></span>
-                  <span class="menu-text">Billing</span>
-                </a>
-                <!-- /child menu -->
-              </li>
-              <!-- /.menu-item -->
-              <!-- .menu-item -->
               <li class="menu-item" ng-show="isAuthenticated">
                 <a ui-sref="wallets" class="menu-link">
                   <span class="menu-icon fas fa-coins"></span>
@@ -284,28 +227,14 @@
               </li>
               <!-- /.menu-item -->
               <!-- .menu-header -->
-              <!--<li class="menu-header" ng-if="isAuthenticated">Staking </li>-->
+              <li class="menu-header" ng-if="isAuthenticated">Staking </li>
               <!-- /.menu-header -->
               <!-- .menu-item -->
-              <!--
               <li class="menu-item" ng-if="isAuthenticated">
                 <a ui-sref="nodes" class="menu-link">
                   <span class="menu-icon fas fa-network-wired"></span>
                   <span class="menu-text">Nodes</span>
                   <span class="badge badge-success" ng-cloak>{{global_nodes.length}}</span>
-                </a>
-              </li>
-              -->
-              <!-- /.menu-item -->
-              <!-- .menu-header -->
-              <li class="menu-header" ng-if="isAuthenticated">Mining </li>
-              <!-- /.menu-header -->
-              <!-- .menu-item -->
-              <li class="menu-item" ng-if="isAuthenticated">
-                <a ui-sref="hosts" class="menu-link">
-                  <span class="menu-icon fas fa-laptop"></span>
-                  <span class="menu-text">Devices</span>
-                  <span class="badge badge-success" ng-cloak>{{global_hosts.length}}</span>
                 </a>
               </li>
               <!-- /.menu-item -->

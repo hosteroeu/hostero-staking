@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.controller:CoinsCtrl
+ * @name anchialeApp.controller:CoinsCtrl
  * @description
  * # CoinsCtrl
- * Controller of the atlasApp
+ * Controller of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .controller('CoinsCtrl', function($scope, coinsService) {
     $scope.coins = coinsService.query({
       on_hostero: 1

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name atlasApp.filter:password
+ * @name anchialeApp.filter:password
  * @description
  * # Password
- * Filter of the atlasApp
+ * Filter of the anchialeApp
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .filter('password', function() {
     return function(input) {
       return Array(input.length + 1).join('*');

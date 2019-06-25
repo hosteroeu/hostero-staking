@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc factory
- * @name atlasApp.payments
+ * @name anchialeApp.payments
  * @description
  * # payments
- * Service in the atlasApp.
+ * Service in the anchialeApp.
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .factory('paymentsService', function($resource, api) {
     return $resource(api.url + api.version +
       '/payments/:id/:controller/:verb/:action', {

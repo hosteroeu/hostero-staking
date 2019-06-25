@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name atlasApp.auth
+ * @name anchialeApp.auth
  * @description
  * # auth
- * Service in the atlasApp.
+ * Service in the anchialeApp.
  */
-angular.module('atlasApp')
+angular.module('anchialeApp')
   .service('authService', function($rootScope, $state, $cookies, lock, authManager, accountsService) {
     var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
 
