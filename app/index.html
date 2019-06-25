@@ -44,7 +44,7 @@
 
 <body ng-app="anchialeApp" ng-controller="RootCtrl as rootCtrl">
   <!-- .app -->
-  <div class="app" ng-class="{'has-fullwidth': minimalLayout}">
+  <div class="app has-fullwidth">
     <!-- .app-header -->
     <header class="app-header" ng-hide="minimalLayout">
       <!-- .top-bar -->
@@ -71,10 +71,12 @@
           </div>
           <!-- /.top-bar-item -->
           <!-- .top-bar-item -->
+          <!--
           <div class="top-bar-item top-bar-item-full" ng-cloak>
             Account:&nbsp;<span class="badge badge-lg badge-info"><a ui-sref="account">{{global_account.name}}</a></span> &nbsp;&nbsp;&nbsp;&nbsp;
             <i class="fas fa-bolt"></i>&nbsp;Total Hashrate: {{total_power | hashrate}}
           </div>
+          -->
           <!-- /.top-bar-item -->
           <!-- .top-bar-item -->
           <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
@@ -260,17 +262,30 @@
 
     <!-- .app-main -->
     <main class="app-main">
+      <!-- .page-navs -->
+      <nav class="page-navs bg-white">
+        <!-- .nav-scroller -->
+        <div class="nav-scroller">
+          <!-- .nav -->
+          <div class="nav nav-tabs">
+            <a class="nav-link" ui-sref="dashboard" ng-class="{active: global_state.current.name == 'dashboard'}">Home</a>
+            <a class="nav-link" ui-sref="wallets" ng-class="{active: global_state.current.name == 'wallets'}">Wallets</a>
+            <a class="nav-link" ui-sref="nodes" ng-class="{active: global_state.current.name == 'nodes'}">Nodes
+              <span class="badge" ng-cloak>{{global_nodes.length}}</span>
+            </a>
+            <a class="nav-link" ui-sref="miners" ng-class="{active: global_state.current.name == 'miners'}">Miners
+              <span class="badge" ng-cloak>{{global_miners.length}}</span>
+            </a>
+          </div>
+          <!-- /.nav -->
+        </div>
+        <!-- /.nav-scroller -->
+      </nav>
+      <!-- /.page-navs -->
+
       <span ng-if="global_state.current.name != 'install' && global_state.current.name != 'logs'">
         <div class="page-message" ng-if="global_account.email === 'demo@hostero.eu'" ng-cloak>
           <i class="fa fa-fw fa-bell"></i> You are on the demo account, the data is restored every hour. If you want to create an account, you need to <a href="" ng-click="authService.logout()" class="alert-link">Logout</a>.
-        </div>
-
-        <div class="page-message" ng-if="global_miners.length > (global_account.plan_miners + global_account.bonus_miners)" ng-cloak>
-          <i class="fa fa-fw fa-bell"></i> <a ui-sref="billing" class="alert-link">Upgrade</a> your account or remove some miners to avoid termination!
-        </div>
-
-        <div class="page-message" ng-if="global_miners.length == (global_account.plan_miners + global_account.bonus_miners)" ng-cloak>
-          <i class="fa fa-fw fa-bell"></i> <a ui-sref="billing" class="alert-link">Upgrade</a> your account if you want to create more miners.
         </div>
       </span>
 
