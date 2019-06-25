@@ -73,15 +73,6 @@ angular
           requiresLogin: true
         }
       })
-      .state('settings', {
-        url: '/settings',
-        templateUrl: 'views/settings.html',
-        controller: 'SettingsCtrl',
-        controllerAs: 'settingsCtrl',
-        data: {
-          requiresLogin: true
-        }
-      })
       .state('events', {
         url: '/events',
         templateUrl: 'views/events.html',
@@ -91,30 +82,11 @@ angular
           requiresLogin: true
         }
       })
-      .state('settings.auto_deploy', {
-        url: '/auto_deploy',
-        parent: 'settings',
-        templateUrl: 'views/settings.auto_deploy.html'
-      })
-      .state('settings.dual_mining', {
-        url: '/dual_mining',
-        parent: 'settings',
-        templateUrl: 'views/settings.dual_mining.html'
-      })
       .state('miners', {
         url: '/miners',
         templateUrl: 'views/miners.html',
         controller: 'MinersCtrl',
         controllerAs: 'minersCtrl',
-        data: {
-          requiresLogin: true
-        }
-      })
-      .state('new_miner', {
-        url: '/new_miner/:host',
-        templateUrl: 'views/miners.new.html',
-        controller: 'MinersNewCtrl',
-        controllerAs: 'ctrl',
         data: {
           requiresLogin: true
         }
@@ -161,15 +133,6 @@ angular
           requiresLogin: false
         }
       })
-      .state('install', {
-        url: '/install',
-        templateUrl: 'views/install_new.html',
-        controller: 'InstallCtrl',
-        controllerAs: 'installCtrl',
-        data: {
-          requiresLogin: false
-        }
-      })
       .state('nodes', {
         url: '/nodes',
         templateUrl: 'views/nodes.html',
@@ -187,23 +150,6 @@ angular
         data: {
           requiresLogin: true
         }
-      })
-      .state('host', {
-        url: '/hosts/:host',
-        templateUrl: 'views/host.html',
-        controller: 'HostCtrl',
-        controllerAs: 'hostCtrl',
-        data: {
-          requiresLogin: true
-        }
-      })
-      .state('host.charts', {
-        url: '/charts',
-        templateUrl: 'views/host.charts.html'
-      })
-      .state('host.events', {
-        url: '/events',
-        templateUrl: 'views/events.html'
       })
       .state('account', {
         url: '/account',
@@ -230,23 +176,6 @@ angular
       .state('wallets.miner', {
         parent: 'wallets.wallet',
         url: '/miner'
-      })
-      .state('billing', {
-        url: '/billing',
-        templateUrl: 'views/billing.html',
-        controller: 'BillingCtrl',
-        controllerAs: 'billingCtrl',
-        data: {
-          requiresLogin: true
-        }
-      })
-      .state('billing.history', {
-        parent: 'billing',
-        url: '/history'
-      })
-      .state('billing.webdollar', {
-        parent: 'billing',
-        url: '/webdollar'
       })
       .state('login', {
         url: '/login',

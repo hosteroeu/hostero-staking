@@ -39,7 +39,7 @@ angular.module('anchialeApp')
         });
 
         $scope.global_coins = coinsService.query({
-          on_hostero: 1
+          on_bootstrap: 1
         });
 
         $scope.global_events = logsService.query();
