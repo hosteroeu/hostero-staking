@@ -42,7 +42,7 @@ angular.module('anchialeApp')
         $scope.global_events = logsService.query();
 
         minersService.query({
-          mode: 'miner'
+          mode: 'staking'
         }).$promise.then(function(res) {
           $scope.global_miners = [];
 

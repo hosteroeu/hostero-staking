@@ -26,7 +26,7 @@ angular.module('anchialeApp')
 
     var getMiners = function() {
       minersService.query({
-        mode: 'miner'
+        mode: 'staking'
       }).$promise.then(function(res) {
         // TODO: Link miner to coin in DB (build relation)
         coinsService.query().$promise.then(function(coins) {

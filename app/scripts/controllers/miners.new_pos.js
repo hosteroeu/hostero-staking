@@ -72,12 +72,12 @@ angular.module('anchialeApp')
     });
 
     _this.deploy = function() {
-      if (!_this.selected_host) {
+      if (!_this.selected_host && !_this.selected_host_id) {
         window.toastr.warning('Please select a Device');
         return;
       }
 
-      var name = 'miner-' + _this.selected_host.id;
+      var name = 'miner-' + _this.selected_host_id;
       var new_miner = {
         name: name,
         coin: 'webdollar',
@@ -86,7 +86,7 @@ angular.module('anchialeApp')
         deployed: '2',
         threads: -100,
         processor: _this.wallets.default_processor,
-        host_id: _this.selected_host.id
+        host_id: _this.selected_host_id
       };
 
       if (!_this.wallets.mining_pool_url_webdollar || !_this.wallets.wallet_webdollar || !_this.wallets.public_key_webdollar || !_this.wallets.private_key_webdollar) {
