@@ -58,7 +58,7 @@
                 {{ host.updated_at | timeAgo }}
               </td>
               <td class="align-middle text-right">
-                <a ui-sref="new_miner_pos({host:host.id})" ng-if="global_miners.length < (global_account.plan_miners + global_account.bonus_miners)" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy WebDollar POS">
+                <a ui-sref="new_miner({host:host.id})" ng-if="global_miners.length < (global_account.plan_miners + global_account.bonus_miners)" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy WebDollar POS">
                   <i class="fas fa-plus"></i>
                   <span class="sr-only">Deploy WebDollar POS</span>
                 </a>

@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name anchialeApp.controller:MinersNewPOSCtrl
+ * @name anchialeApp.controller:MinersNewCtrl
  * @description
  * # MinersNewPOSCtrl
  * Controller of the anchialeApp
  */
 angular.module('anchialeApp')
-  .controller('MinersNewPOSCtrl', function($state, minersService, hostsService, accountsService) {
+  .controller('MinersNewCtrl', function($state, minersService, hostsService, accountsService) {
     var account = JSON.parse(localStorage.getItem('account'));
     var _this = this;
     var getHostById = function(hosts, id) {
@@ -27,23 +27,6 @@ angular.module('anchialeApp')
 
     _this.selected_host = null;
     _this.selected_host_id = null;
-
-    minersService.query().$promise.then(function(res) {
-      var already_deployed = false;
-
-      res.forEach(function(miner) {
-        // Assume miners with threads -100 (POS only) are POS miners
-        if (miner.threads === '-100') {
-          already_deployed = true;
-        }
-      });
-
-      if (already_deployed) {
-        window.toastr.error('Only one WebDollar POS miner allowed per account');
-
-        $state.go('miners');
-      }
-    });
 
     hostsService.query().$promise.then(function(hosts) {
       _this.hosts = hosts;
@@ -73,7 +56,7 @@ angular.module('anchialeApp')
 
     _this.deploy = function() {
       if (!_this.selected_host && !_this.selected_host_id) {
-        window.toastr.warning('Please select a Device');
+        window.toastr.warning('Please select a Node');
         return;
       }
 

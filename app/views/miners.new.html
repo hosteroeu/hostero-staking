@@ -14,7 +14,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <label for="host">Device</label>
+                <label for="host">Node</label>
                 <select class="custom-select" id="host" required="required" ng-model="ctrl.selected_host_id" ng-change="ctrl.update_threads()">
                   <option ng-repeat="host in ctrl.hosts | filter:{user_id: 'shared'}" value="{{host.id}}">{{host.name}}</option>
                   <option value="">Choose...</option>

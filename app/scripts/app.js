@@ -64,11 +64,11 @@ angular
     ]);
 
     $stateProvider
-      .state('dashboard', {
+      .state('miners', {
         url: '/',
-        templateUrl: 'views/dashboard.html',
-        controller: 'DashboardCtrl',
-        controllerAs: 'dashboardCtrl',
+        templateUrl: 'views/miners.html',
+        controller: 'MinersCtrl',
+        controllerAs: 'minersCtrl',
         data: {
           requiresLogin: true
         }
@@ -82,19 +82,10 @@ angular
           requiresLogin: true
         }
       })
-      .state('miners', {
-        url: '/miners',
-        templateUrl: 'views/miners.html',
-        controller: 'MinersCtrl',
-        controllerAs: 'minersCtrl',
-        data: {
-          requiresLogin: true
-        }
-      })
-      .state('new_miner_pos', {
-        url: '/new_miner_pos/:host',
-        templateUrl: 'views/miners.new_pos.html',
-        controller: 'MinersNewPOSCtrl',
+      .state('new_miner', {
+        url: '/new_miner/:host',
+        templateUrl: 'views/miners.new.html',
+        controller: 'MinersNewCtrl',
         controllerAs: 'ctrl',
         data: {
           requiresLogin: true
@@ -133,11 +124,11 @@ angular
           requiresLogin: false
         }
       })
-      .state('nodes', {
-        url: '/nodes',
-        templateUrl: 'views/nodes.html',
-        controller: 'NodesCtrl',
-        controllerAs: 'nodesCtrl',
+      .state('servers', {
+        url: '/servers',
+        templateUrl: 'views/servers.html',
+        controller: 'ServersCtrl',
+        controllerAs: 'serversCtrl',
         data: {
           requiresLogin: true
         }

@@ -5,7 +5,7 @@
     <!-- .page-title-bar -->
     <header class="page-title-bar">
       <!-- floating action -->
-      <button type="button" class="btn btn-success btn-floated" ui-sref="new_miner_pos" ng-if="global_miners.length < (global_account.plan_miners + global_account.bonus_miners)">
+      <button type="button" class="btn btn-success btn-floated" ui-sref="new_miner" ng-if="global_miners.length < (global_account.plan_miners + global_account.bonus_miners)">
         <span class="fa fa-plus"></span>
       </button>
       <!-- /floating action -->
@@ -34,7 +34,7 @@
     <!-- .page-section -->
     <section class="card card-fluid">
       <div class="card-body" ng-if="miners != null && !miners.length">
-        You have not deployed any miners. <a ui-sref="new_miner_pos">Deploy a miner</a>.
+        You have not deployed any miners. <a ui-sref="new_miner">Deploy a miner</a>.
       </div>
 
       <div ng-if="miners == null">

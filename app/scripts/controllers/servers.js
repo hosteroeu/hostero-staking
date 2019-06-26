@@ -2,20 +2,20 @@
 
 /**
  * @ngdoc function
- * @name anchialeApp.controller:NodesCtrl
+ * @name anchialeApp.controller:ServersCtrl
  * @description
- * # NodesCtrl
+ * # ServersCtrl
  * Controller of the anchialeApp
  */
 angular.module('anchialeApp')
-  .controller('NodesCtrl', function($scope, $state, hostsService, DTOptionsBuilder) {
+  .controller('ServersCtrl', function($scope, $state, hostsService, DTOptionsBuilder) {
     $scope.nodes = null;
     $scope.filter = '';
     $scope.dt_options = DTOptionsBuilder.newOptions()
       .withDisplayLength(25)
       .withOption('retrieve', true);
 
-    var getNodes = function () {
+    var getServers = function () {
       hostsService.query().$promise.then(function(res) {
         $scope.nodes = [];
 
@@ -29,9 +29,9 @@ angular.module('anchialeApp')
       });
     };
 
-    var interval = setInterval(getNodes, 60 * 1000);
+    var interval = setInterval(getServers, 60 * 1000);
 
-    getNodes();
+    getServers();
 
     this.get_status_icon = function(status) {
       switch (status) {
