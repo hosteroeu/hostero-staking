@@ -6,7 +6,7 @@
     <header class="page-title-bar">
       <!-- title and toolbar -->
       <div class="d-md-flex align-items-md-start">
-        <h1 class="page-title mr-sm-auto"> {{nodes.length || 0}} Nodes </h1>
+        <h1 class="page-title mr-sm-auto"> {{servers.length || 0}} Servers </h1>
       </div>
       <!-- /title and toolbar -->
     </header>
@@ -14,22 +14,22 @@
 
     <!-- .page-section -->
     <section class="card card-fluid">
-      <div class="card-body" ng-if="nodes != null && !nodes.length">
-        No nodes.
+      <div class="card-body" ng-if="servers != null && !servers.length">
+        No servers.
       </div>
 
-      <div ng-if="nodes == null">
+      <div ng-if="servers == null">
         <center>
           <br />
           <p><img src="images/loading.gif" /></p>
         </center>
       </div>
 
-      <div class="table-responsive" ng-if="nodes != null && nodes.length">
+      <div class="table-responsive" ng-if="servers != null && servers.length">
         <table class="table table-hover" datatable="ng" dt-options="dt_options">
           <thead class="thead-light">
             <tr>
-              <th>Node</th>
+              <th>Server</th>
               <th>Capacity</th>
               <th>Coin</th>
               <th>Type</th>
@@ -38,15 +38,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="host in nodes">
+            <tr ng-repeat="server in servers">
               <td>
                 <div class="tile bg-success">
                   <i class="fa fa-network-wired"></i>
                 </div>
-                &nbsp; {{ host.name | limitTo:100 }}
+                &nbsp; {{ server.name | limitTo:100 }}
               </td>
               <td>
-                {{host.miners_no}} / {{host.capacity}}
+                {{server.miners_no}} / {{server.capacity}}
               </td>
               <td>
                 <a ui-sref="wallets.wallet({wallet: 'webdollar'})">WebDollar</a>
@@ -55,12 +55,12 @@
                 Proof Of Stake
               </td>
               <td>
-                {{ host.updated_at | timeAgo }}
+                {{ server.updated_at | timeAgo }}
               </td>
               <td class="align-middle text-right">
-                <a ui-sref="new_miner({host:host.id})" ng-if="global_miners.length < (global_account.plan_miners + global_account.bonus_miners)" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy WebDollar POS">
+                <a ui-sref="new_miner({host:server.id})" ng-if="server.miners_no < server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy miner">
                   <i class="fas fa-plus"></i>
-                  <span class="sr-only">Deploy WebDollar POS</span>
+                  <span class="sr-only">Deploy miner</span>
                 </a>
               </td>
             </tr>

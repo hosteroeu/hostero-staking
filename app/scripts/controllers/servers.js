@@ -9,7 +9,7 @@
  */
 angular.module('anchialeApp')
   .controller('ServersCtrl', function($scope, $state, hostsService, DTOptionsBuilder) {
-    $scope.nodes = null;
+    $scope.servers = null;
     $scope.filter = '';
     $scope.dt_options = DTOptionsBuilder.newOptions()
       .withDisplayLength(25)
@@ -17,14 +17,14 @@ angular.module('anchialeApp')
 
     var getServers = function () {
       hostsService.query().$promise.then(function(res) {
-        $scope.nodes = [];
+        $scope.servers = [];
 
         res.forEach(function(host) {
           if (host.user_id !== 'shared') {
             return;
           }
 
-          $scope.nodes.push(host);
+          $scope.servers.push(host);
         });
       });
     };
