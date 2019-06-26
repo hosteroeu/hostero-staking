@@ -62,7 +62,7 @@ angular.module('anchialeApp')
               domain: '.hostero.eu'
             });
 
-            $state.go('dashboard');
+            $state.go('miners');
 
             accountsService.update({
               id: account.id
