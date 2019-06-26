@@ -30,6 +30,7 @@
           <thead class="thead-light">
             <tr>
               <th>Node</th>
+              <th>Capacity</th>
               <th>Coin</th>
               <th>Type</th>
               <th>Updated</th>
@@ -43,6 +44,9 @@
                   <i class="fa fa-network-wired"></i>
                 </div>
                 &nbsp; {{ host.name | limitTo:100 }}
+              </td>
+              <td>
+                {{host.miners_no}} / {{host.capacity}}
               </td>
               <td>
                 <a ui-sref="wallets.wallet({wallet: 'webdollar'})">WebDollar</a>
