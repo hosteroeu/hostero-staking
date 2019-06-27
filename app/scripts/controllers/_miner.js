@@ -75,6 +75,16 @@ angular.module('anchialeApp')
     });
     */
 
+    $scope.get_name = function(miner) {
+      var name = 'miner#' + miner.id;
+
+      if (miner.name.indexOf('miner-') === -1) {
+        name = miner.name;
+      }
+
+      return name;
+    };
+
     $scope.getIframeSrc = function(panelId, address) {
       return 'https://charts.webdollarminingpool.com/dashboard-solo/db/wmp-miner-hash?orgId=1&from=now-1d&to=now&panelId=' + panelId + '&theme=light&var-address=' + encodeURIComponent(address);
     };

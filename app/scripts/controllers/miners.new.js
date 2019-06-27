@@ -27,6 +27,7 @@ angular.module('anchialeApp')
 
     _this.selected_host = null;
     _this.selected_host_id = null;
+    _this.name = null;
 
     hostsService.query().$promise.then(function(hosts) {
       _this.hosts = hosts;
@@ -34,6 +35,7 @@ angular.module('anchialeApp')
       if ($state.params.host) {
         _this.selected_host = getHostById(_this.hosts, $state.params.host);
         _this.selected_host_id = $state.params.host;
+        _this.update_name();
       }
     });
 
@@ -54,15 +56,18 @@ angular.module('anchialeApp')
       }
     });
 
+    _this.update_name = function() {
+      _this.name = 'miner-' + _this.selected_host_id;
+    };
+
     _this.deploy = function() {
       if (!_this.selected_host && !_this.selected_host_id) {
         window.toastr.warning('Please select a Node');
         return;
       }
 
-      var name = 'miner-' + _this.selected_host_id;
       var new_miner = {
-        name: name,
+        name: _this.name,
         coin: 'webdollar',
         status: 'stopped',
         mode: 'staking',

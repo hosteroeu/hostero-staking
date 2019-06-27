@@ -64,7 +64,7 @@
                   <i class="fa fa-{{minersCtrl.get_status_icon(miner)}}"></i>
                 </div>
                 &nbsp;
-                <a ui-sref="miner({miner:miner.id})">miner#{{ miner.id }}</a>
+                <a ui-sref="miner({miner:miner.id})">{{ minersCtrl.get_name(miner) }}</a>
               </td>
               <td>
                 <a ui-sref="wallets.wallet({wallet: miner.coin})">{{ miner.coin | ucfirst }}</a>

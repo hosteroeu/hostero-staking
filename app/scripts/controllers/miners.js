@@ -113,6 +113,16 @@ angular.module('anchialeApp')
       return icon;
     };
 
+    this.get_name = function(miner) {
+      var name = 'miner#' + miner.id;
+
+      if (miner.name.indexOf('miner-') === -1) {
+        name = miner.name;
+      }
+
+      return name;
+    };
+
     this.open_url = function(instance) {
       var account = JSON.parse(localStorage.getItem('account'));
 
