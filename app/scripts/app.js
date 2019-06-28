@@ -41,7 +41,7 @@ angular
         },
         theme: {
           logo: '/images/hostero_logo_black_square.png',
-          primaryColor: '#346CB0'
+          primaryColor: '#00826e'
         }
       }
     });
