@@ -58,11 +58,17 @@ angular.module('anchialeApp')
 
     _this.update_name = function() {
       _this.name = 'miner-' + _this.selected_host_id;
+      _this.selected_host = getHostById(_this.hosts, _this.selected_host_id);
     };
 
     _this.deploy = function() {
       if (!_this.selected_host && !_this.selected_host_id) {
-        window.toastr.warning('Please select a Node');
+        window.toastr.warning('Please select a server');
+        return;
+      }
+
+      if (_this.selected_host && _this.selected_host.miners_no >= _this.selected_host.capacity) {
+        window.toastr.warning('Server at full capacity. Select another server');
         return;
       }
 

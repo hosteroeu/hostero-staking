@@ -58,10 +58,14 @@
                 {{ server.updated_at | timeAgo }}
               </td>
               <td class="align-middle text-right">
-                <a ui-sref="new_miner({host:server.id})" ng-if="server.miners_no < server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy miner">
+                <button ui-sref="new_miner({host:server.id})" ng-if="server.miners_no < server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy miner">
                   <i class="fas fa-plus"></i>
                   <span class="sr-only">Deploy miner</span>
-                </a>
+                </button>
+                <button disabled ng-if="server.miners_no >= server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Server at full capacity">
+                  <i class="fas fa-plus"></i>
+                  <span class="sr-only">Deploy miner</span>
+                </button>
               </td>
             </tr>
           </tbody>
