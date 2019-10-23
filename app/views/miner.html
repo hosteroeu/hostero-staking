@@ -54,18 +54,12 @@
             <p>Device: <strong><a ui-sref="host({host: miner.Host.id})">{{ miner.Host.name }}</a></strong></p>
             <p ng-if="miner.coin != 'webdollar'">Wallet / Username: <strong>{{ miner.wallet }}</strong></p>
             <p ng-if="miner.mining_pool_url">Mining Pool: <strong>{{ miner.mining_pool_url }}</strong></p>
-            <p ng-if="miner.password">Password: <strong>{{ miner.password | password }}</strong></p>
             <p ng-if="miner.coin == 'webdollar'">Wallet: <strong><a ng-href="{{ getHref(miner.wallet) }}" target="_blank">{{ miner.wallet }}</a></strong></p>
-            <p>Threads: <strong>{{ miner.threads }}</strong></p>
 
             <hr />
 
             <p>
               <a href="http://staking.hostero.eu/#!/logs/{{logs_token}}" target="_blank" class="btn btn-primary btn-lg btn-block" ng-show="logs_token">View real-time logs</a>
-            </p>
-
-            <p>
-              <strong>Note</strong>: To view the logs on the device, run: <code>docker logs -f $(docker ps | grep miner | cut -c1-5)</code>
             </p>
           </div>
         </div>
