@@ -130,41 +130,23 @@ angular.module('anchialeApp')
     };
 
     this.delete_all = function() {
-      /*
-      var confirm = $mdDialog.confirm()
-        .title('Do you want to re-deploy all the miners?')
-        .textContent('Re-deploying the miners takes several minutes and will delete all your hosts and miners.')
-        .ariaLabel('Redeploy')
-        .targetEvent($event)
-        .ok('Re-deploy')
-        .cancel('Cancel');
-      */
+      if (window.confirm('Do you want to delete all miners?')) {
+        $scope.miners.forEach(function(miner) {
+          if (!miner.temporary) {
+            minersService.remove({
+              id: miner.id
+            });
+          }
+        });
 
-      $scope.miners.forEach(function(miner) {
-        if (!miner.temporary) {
-          minersService.remove({
-            id: miner.id
-          });
-        }
-      });
-
-      setTimeout(function() {
-        window.toastr.info('Deleting all the miners...');
-        $state.reload();
-      }, 2000);
+        setTimeout(function() {
+          window.toastr.info('Deleting all the miners...');
+          $state.reload();
+        }, 2000);
+      }
     };
 
     this.redeploy = function(miner) {
-      /*
-      var confirm = $mdDialog.confirm()
-        .title('Do you want to re-deploy the miner?')
-        .textContent('Re-deploying the miner takes several minutes and will delete the host and the miner.')
-        .ariaLabel('Re-deploy')
-        .targetEvent($event)
-        .ok('Re-deploy')
-        .cancel('Cancel');
-      */
-
       minersService.remove({
         id: miner.id
       });
@@ -184,38 +166,51 @@ angular.module('anchialeApp')
       }, 2000);
     };
 
-    this.remove = function(miner) {
-      /*
-      var confirm = $mdDialog.confirm()
-        .title('Do you want to remove the miner?')
-        .textContent('The hosts will not be deleted. If you want to stop using the host, you need to delete it as well.')
-        .ariaLabel('Remove')
-        .targetEvent($event)
-        .ok('Remove')
-        .cancel('Cancel');
-      */
+    this.logs = function(miner) {
+      window.toastr.info('Getting logs for miner ' + miner.name);
 
-      minersService.remove({
-        id: miner.id
-      }).$promise.then(function() {
-        if ($state.current.name === 'miners') {
-          $state.reload();
-        } else {
-          $state.go('miners');
+      minersService.get({
+        id: miner.id,
+        controller: 'logs'
+      }).$promise.then(function(data) {
+        if (data.ws) {
+          var token = data.ws.split('token=');
+
+          if (token && token.length > 1 && token[1]) {
+            window.open('http://staking.hostero.eu/#!/logs/' + token[1]);
+          } else {
+            window.toastr.error('Logs can not be retrieved at this time');
+          }
         }
-
-        if (miner.Host && miner.Host.user_id === 'shared') {
-          return;
-        }
-
-        hostsService.update({
-            id: miner.host_id
-          }, {
-            deployed: '0'
-          }).$promise
-          .then(console.log)
-          .catch(console.error);
       });
+    };
+
+    this.remove = function(miner) {
+      if (window.confirm('Do you want to delete ' + miner.name + '?')) {
+        minersService.remove({
+          id: miner.id
+        }).$promise.then(function() {
+          window.toastr.success('Miner has been deleted');
+
+          if ($state.current.name === 'miners') {
+            $state.reload();
+          } else {
+            $state.go('miners');
+          }
+
+          if (miner.Host && miner.Host.user_id === 'shared') {
+            return;
+          }
+
+          hostsService.update({
+              id: miner.host_id
+            }, {
+              deployed: '0'
+            }).$promise
+            .then(console.log)
+            .catch(console.error);
+        });
+      }
     };
 
     $scope.$on('$destroy', function() {

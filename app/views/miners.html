@@ -77,24 +77,10 @@
                 <span ng-if="!miner.Host">-</span>
               </td>
               <td class="align-middle text-right" ng-if="!miner.temporary">
-                <!--
-                <a href="http://dashboard.hostero.eu/#!/logs/{{miner.id}}" target="_blank" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Logs">
+                <a ng-click="minersCtrl.logs(miner)" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="Logs">
                   <i class="fa fa-database"></i>
                   <span class="sr-only">Logs</span>
                 </a>
-                -->
-                <!--
-                <a ng-click="minersCtrl.fast_deploy(miner)" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="Fast deploy">
-                  <i class="fa fa-bolt"></i>
-                  <span class="sr-only">Fast deploy</span>
-                </a>
-                -->
-                <!--
-                <a ng-click="minersCtrl.redeploy(miner)" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="Re-deploy">
-                  <i class="fa fa-recycle"></i>
-                  <span class="sr-only">Re-deploy</span>
-                </a>
-                -->
                 <a ng-click="minersCtrl.remove(miner)" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="Remove">
                   <i class="far fa-trash-alt"></i>
                   <span class="sr-only">Remove</span>
