@@ -10,7 +10,7 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "auth0-lock": "~11.13.0",
-    "angular-lock": "~3.0.1",
+    "angular-lock": "3.0.1",
     "angular-jwt": "~0.1.2",
     "angular-ui-router": "^0.3.1",
     "angular-filter": "^0.5.11",
