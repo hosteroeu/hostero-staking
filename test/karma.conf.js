@@ -40,6 +40,7 @@ module.exports = function(config) {
       'bower_components/PACE/pace.js',
       'bower_components/datatables/media/js/jquery.dataTables.js',
       'bower_components/datatables/media/js/dataTables.bootstrap4.js',
+      'bower_components/popper.js/dist/umd/popper.js',
       'bower_components/angular-timeago/dist/angular-timeago.js',
       'bower_components/datatables.net/js/jquery.dataTables.js',
       'bower_components/angular-datatables/dist/angular-datatables.js',
