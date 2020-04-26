@@ -20,17 +20,17 @@ angular.module('anchialeApp')
 
       localStorage.setItem('account', JSON.stringify(_account));
 
-      switch (_account.plan_miners) {
-        case 1:
+      switch (_account.plan_miners_staking) {
+        case 0:
           $scope.plan = 'free';
           break;
-        case 5:
+        case 1:
           $scope.plan = 'hobby';
           break;
-        case 20:
+        case 5:
           $scope.plan = 'miner';
           break;
-        case 100:
+        case 25:
           $scope.plan = 'farm';
           break;
         case -1:

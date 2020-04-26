@@ -5,8 +5,12 @@
     <!-- .page-title-bar -->
     <header class="page-title-bar">
       <!-- floating action -->
-      <button type="button" class="btn btn-success btn-floated" ui-sref="new_miner" ng-if="global_miners.length < (global_account.plan_miners + global_account.bonus_miners)">
+      <button type="button" class="btn btn-success btn-floated" ui-sref="new_miner" ng-if="global_miners.length < (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
         <span class="fa fa-plus"></span>
+      </button>
+
+      <button type="button" class="btn btn-primary btn-floated" ui-sref="billing" ng-if="global_miners.length >= (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
+        <span class="fa fa-shopping-cart"></span>
       </button>
       <!-- /floating action -->
       <!-- title and toolbar -->
@@ -34,7 +38,13 @@
     <!-- .page-section -->
     <section class="card card-fluid">
       <div class="card-body" ng-if="miners != null && !miners.length">
-        You have not deployed any miners. <a ui-sref="new_miner">Deploy a miner</a>.
+        <span ng-if="global_miners.length < (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
+          You have not deployed any miners. <a ui-sref="billing">Upgrade your account</a> to deploy a miner.
+        </span>
+
+        <span ng-if="global_miners.length >= (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
+          You have not deployed any miners. <a ui-sref="new_miner">Deploy a miner</a>.
+        </span>
       </div>
 
       <div ng-if="miners == null">
@@ -94,6 +104,13 @@
         </table>
       </div>
     </section>
+
+    <div class="alert alert-secondary has-icon" role="alert">
+      <div class="alert-icon">
+        <span class="fa fa-info"></span>
+      </div>
+      <strong>Did you know?</strong><br /> You can also stake WebDollar using our telegram bot? <a href="https://t.me/webdollar_tip_bot" class="alert-link" target="_blank">@webdollar_tip_bot</a>
+    </div>
   </div>
   <!-- /.page-inner -->
 </div>

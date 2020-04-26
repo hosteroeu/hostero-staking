@@ -58,14 +58,22 @@
                 {{ server.updated_at | timeAgo }}
               </td>
               <td class="align-middle text-right">
-                <button ui-sref="new_miner({host:server.id})" ng-if="server.miners_no < server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy miner">
-                  <i class="fas fa-plus"></i>
-                  <span class="sr-only">Deploy miner</span>
-                </button>
-                <button disabled ng-if="server.miners_no >= server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Server at full capacity">
-                  <i class="fas fa-plus"></i>
-                  <span class="sr-only">Server at full capacity</span>
-                </button>
+                <span ng-if="global_miners.length < (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
+                  <button ui-sref="new_miner({host:server.id})" ng-if="server.miners_no < server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Deploy miner">
+                    <i class="fas fa-plus"></i>
+                    <span class="sr-only">Deploy miner</span>
+                  </button>
+                  <button disabled ng-if="server.miners_no >= server.capacity" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Server at full capacity">
+                    <i class="fas fa-plus"></i>
+                    <span class="sr-only">Server at full capacity</span>
+                  </button>
+                </span>
+                <span ng-if="global_miners.length >= (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
+                  <button ui-sref="billing" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Upgrade account to add more miners">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="sr-only">Upgrade account</span>
+                  </button>
+                </span>
               </td>
             </tr>
           </tbody>
@@ -77,7 +85,7 @@
       <div class="alert-icon">
         <span class="fa fa-info"></span>
       </div>
-      <strong>Need help?</strong><br /> Check out our <a href="https://www.hostero.eu/docs/webdollar-pos-mining" class="alert-link" target="_blank">guide</a> for configuring the Proof-of-Stake miner for WebDollar.
+      <strong>Need help?</strong><br /> Check out our <a href="https://www.hostero.eu/docs/webdollar-pos-mining" class="alert-link" target="_blank">guide</a> for configuring the staking miner for WebDollar.
     </div>
   </div>
   <!-- /.page-inner -->

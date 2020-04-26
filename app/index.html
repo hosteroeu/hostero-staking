@@ -59,9 +59,12 @@
       <div class="top-bar">
         <!-- .top-bar-brand -->
         <div class="top-bar-brand">
-          <img src="images/hostero_logo_white_small.png" height="32" alt="">&nbsp;&nbsp;
+          <a href="https://www.hostero.eu" target="_blank">
+            <img src="images/hostero_logo_white_small.png" height="32" alt="">
+          </a>
+          &nbsp;&nbsp;
           <a ui-sref="miners">
-            <strong>Staking</strong>
+            <strong>Hostero Staking</strong>
           </a>
         </div>
         <!-- /.top-bar-brand -->
@@ -268,14 +271,18 @@
         <div class="nav-scroller">
           <!-- .nav -->
           <div class="nav nav-tabs">
-            <a class="nav-link" ui-sref="miners" ng-class="{active: global_state.current.name == 'miners'}">Miners
-              <span class="badge" ng-cloak>{{global_miners.length}}</span>
+            <a class="nav-link" ui-sref="miners" ng-class="{active: global_state.current.name == 'miners'}">
+              <i class="fas fa-microchip"></i> Miners <span class="badge" ng-cloak>{{global_miners.length}}</span>
             </a>
-            <a class="nav-link" ui-sref="servers" ng-class="{active: global_state.current.name == 'servers'}">Servers
-              <span class="badge" ng-cloak>{{global_servers.length}}</span>
+            <a class="nav-link" ui-sref="servers" ng-class="{active: global_state.current.name == 'servers'}">
+              <i class="fas fa-laptop"></i> Servers <span class="badge" ng-cloak>{{global_servers.length}}</span>
             </a>
-            <a class="nav-link" ui-sref="wallets" ng-class="{active: global_state.current.name == 'wallets'}">Wallets</a>
-            <a class="nav-link" ui-sref="billing" ng-class="{active: global_state.current.name == 'billing'}">Billing</a>
+            <a class="nav-link" ui-sref="wallets" ng-class="{active: global_state.current.name == 'wallets'}">
+              <i class="fas fa-wallet"></i> Wallets
+            </a>
+            <a class="nav-link" ui-sref="billing" ng-class="{active: global_state.current.name == 'billing'}">
+              <i class="fas fa-dollar-sign"></i> Billing
+            </a>
           </div>
           <!-- /.nav -->
         </div>
@@ -287,11 +294,15 @@
         <div class="page-message" ng-if="global_account.email === 'demo@hostero.eu'" ng-cloak>
           <i class="fa fa-fw fa-bell"></i> You are on the demo account, the data is restored every hour. If you want to create an account, you need to <a href="" ng-click="authService.logout()" class="alert-link">Logout</a>.
         </div>
-      </span>
 
-      <div class="page-message" ng-cloak>
-        <i class="fa fa-fw fa-bell"></i> Did you know you can also stake WebDollar using our telegram bot? <a href="https://t.me/webdollar_tip_bot" class="alert-link" target="_blank">@webdollar_tip_bot</a>
-      </div>
+        <div class="page-message" ng-if="global_miners.length > (global_account.plan_miners_staking + global_account.bonus_miners_staking)" ng-cloak>
+          <i class="fa fa-fw fa-bell"></i> <a ui-sref="billing" class="alert-link">Upgrade</a> account or remove some miners to avoid termination!
+        </div>
+
+        <div class="page-message" ng-if="global_miners.length == (global_account.plan_miners_staking + global_account.bonus_miners_staking)" ng-cloak>
+          <i class="fa fa-fw fa-shopping-cart"></i> <a ui-sref="billing" class="alert-link">Upgrade</a> account if you want to create more miners.
+        </div>
+      </span>
 
       <div class="wrapper" ui-view></div>
 
