@@ -275,6 +275,7 @@
               <span class="badge" ng-cloak>{{global_servers.length}}</span>
             </a>
             <a class="nav-link" ui-sref="wallets" ng-class="{active: global_state.current.name == 'wallets'}">Wallets</a>
+            <a class="nav-link" ui-sref="billing" ng-class="{active: global_state.current.name == 'billing'}">Billing</a>
           </div>
           <!-- /.nav -->
         </div>
@@ -370,6 +371,7 @@
   <script src="scripts/controllers/wallets.js"></script>
   <script src="scripts/controllers/events.js"></script>
   <script src="scripts/controllers/servers.js"></script>
+  <script src="scripts/controllers/billing.js"></script>
   <script src="scripts/controllers/logs.js"></script>
   <script src="scripts/filters/hashrate.js"></script>
   <script src="scripts/filters/password.js"></script>

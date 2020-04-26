@@ -159,6 +159,23 @@ angular
         parent: 'wallets.wallet',
         url: '/miner'
       })
+      .state('billing', {
+        url: '/billing',
+        templateUrl: 'views/billing.html',
+        controller: 'BillingCtrl',
+        controllerAs: 'billingCtrl',
+        data: {
+          requiresLogin: true
+        }
+      })
+      .state('billing.history', {
+        parent: 'billing',
+        url: '/history'
+      })
+      .state('billing.webdollar', {
+        parent: 'billing',
+        url: '/webdollar'
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',
