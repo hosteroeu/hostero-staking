@@ -15,7 +15,11 @@
       <!-- /floating action -->
       <!-- title and toolbar -->
       <div class="d-md-flex align-items-md-start">
-        <h1 class="page-title mr-sm-auto"> {{miners.length || 0}} Miners</h1>
+        <h1 class="page-title mr-sm-auto"> {{miners.length || 0}} Miners
+          <small class="badge">
+            <a ui-sref="account">{{(global_account.plan_miners_staking + global_account.bonus_miners_staking) || 0}} Available</a>
+          </small>
+        </h1>
         <!-- .btn-toolbar -->
         <div class="btn-toolbar">
           <div class="dropdown">
