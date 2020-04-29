@@ -30,7 +30,7 @@
           <thead class="thead-light">
             <tr>
               <th>Server</th>
-              <th>Capacity</th>
+              <th>Slots</th>
               <th>Coin</th>
               <th>Type</th>
               <th>Updated</th>
@@ -46,13 +46,15 @@
                 &nbsp; {{ server.name | limitTo:100 }}
               </td>
               <td>
-                {{server.miners_no}} / {{server.capacity}}
+                <div class="progress mb-4" data-toggle="tooltip" data-placement="top" title="{{server.miners_no}} / {{server.capacity}} Miners">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{(server.miners_no / server.capacity * 100)}}%"></div>
+                </div>
               </td>
               <td>
                 <a ui-sref="wallets.wallet({wallet: 'webdollar'})">WebDollar</a>
               </td>
               <td>
-                Proof Of Stake
+                POS
               </td>
               <td>
                 {{ server.updated_at | timeAgo }}
