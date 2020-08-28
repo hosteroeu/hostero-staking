@@ -42,11 +42,11 @@
     <!-- .page-section -->
     <section class="card card-fluid">
       <div class="card-body" ng-if="miners != null && !miners.length">
-        <span ng-if="global_miners.length < (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
+        <span ng-if="(global_account.plan_miners_staking + global_account.bonus_miners_staking) < 1">
           You have not deployed any miners. <a ui-sref="billing">Upgrade your account</a> to deploy a miner.
         </span>
 
-        <span ng-if="global_miners.length >= (global_account.plan_miners_staking + global_account.bonus_miners_staking)">
+        <span ng-if="(global_account.plan_miners_staking + global_account.bonus_miners_staking) >= 1">
           You have not deployed any miners. <a ui-sref="new_miner">Deploy a miner</a>.
         </span>
       </div>
